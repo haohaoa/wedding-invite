@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+
+<head>
+    <!-- Tiêu đề trang -->
+    <meta property="og:title" content="Thiệp cưới Thanh Loan & Minh Khôi" />
+
+    <!-- Mô tả trang -->
+    <meta property="og:description" content="Chúng tôi trân trọng mời bạn đến dự lễ cưới của chúng tôi." />
+
+    <!-- Link ảnh cưới (nên là link tuyệt đối) -->
+    <meta property="og:image" content="https://xuonginhanoi.vn/files/thiep-cuoi-dep-an-ky-1(1).jpg" />
+
+    <!-- Kích thước ảnh (khuyến nghị) -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- URL trang -->
+    <!-- <meta property="og:url" content="https://yourdomain.com/wedding" /> -->
+
+    <!-- Loại nội dung -->
+    <meta property="og:type" content="website" />
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Thiệp Cưới Thanh Loan &amp; Minh Khôi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Dancing+Script:wght@400;700&amp;family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Allura&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        referrerpolicy="no-referrer" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-script {
+            font-family: 'Allura', cursive;
+        }
+        .font-body-alt {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Thêm các hiệu ứng cuộn và parallax */
+        .scroll-fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .scroll-fade-in.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-scale-in {
+            opacity: 0;
+            transform: scale(0.95) translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .scroll-scale-in.in-view {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        
+        .scroll-slide-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .scroll-slide-left.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-slide-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .scroll-slide-right.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .parallax-image {
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* Hiệu ứng mở thiệp mời */
+        .invitation-cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ee2b6c 0%, #bfa16a 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: openInvitation 3s ease-in-out forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes openInvitation {
+            0% {
+                opacity: 1;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                clip-path: polygon(50% 0, 100% 0, 50% 100%, 0% 100%);
+                pointer-events: none;
+            }
+        }
+        
+        .invitation-text {
+            color: white;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .invitation-text h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.5s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .invitation-text p {
+            font-size: 1.5rem;
+            animation: fadeInUp 1.5s ease-out 0.8s forwards;
+            opacity: 0;
+            font-family: 'Allura', cursive;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+</style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2b6c",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221016",
+                        "gold": "#bfa16a",
+                        "charcoal": "#4a4a4a",
+                        "off-white": "#f8f6f6",
+                        "memory-bg": "#F9F5F2"
+                    },
+                    fontFamily: {
+                        "display": ["Cormorant Garamond", "serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "script": ["Allura", "cursive"],
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                    transitionTimingFunction: {
+                        'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-off-white dark:bg-background-dark font-display text-charcoal dark:text-gray-300 text-lg">
+    <!-- Thêm hiệu ứng mở thiệp mời -->
+    <div class="invitation-cover">
+        <div class="invitation-text">
+            <p>Xin mời bạn</p>
+        </div>
+    </div>
+
+    <!-- Thêm audio background music -->
+    <audio id="bgMusic" loop style="display:none;">
+        <source src="wedding.mp3" type="audio/wav">
+    </audio>
+    <canvas id="snowCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50"></canvas>
+
+    <div class="relative w-full flex flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="relative flex h-screen w-full flex-col items-center justify-center text-center overflow-hidden">
+                <div class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-500 ease-in-out scale-105 parallax-image"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSXru4ohOApkN2iKCkjQyot1jv1MJ6xHMyM9tw0v82ijnoI9FuBlSDF4C3VA7_lAJ68kpe7qqFaLHBX15zqb8X2iJltGqWHATj9t3jOsf5VbI1Msl2y6ImH1QWd1osxwwM1VSWcyiJ178dA8SjuQy672wd6_Zt3rdtoIzZLzatB5ZPmDe8904829feYaYq4whDMq5Rx40VtMaEORHau8yrX9-UKuIsRGx9pPRz4SOSIBMH56roxZkkvNsLRFr-5XMjo-V6GDIdTHCU"); filter: blur(4px);'>
+                </div>
+                <div class="absolute inset-0 z-10 bg-black/40"></div>
+                <div class="relative z-20 flex flex-col items-center justify-center p-4 text-white scroll-fade-in">
+                    <p class="font-body-alt text-xl tracking-[0.2em] uppercase">Trân trọng báo hỷ</p>
+                    <div class="my-6 relative text-center">
+                        <h1 class="font-script text-7xl md:text-9xl text-white drop-shadow-lg leading-none">Thanh Loan
+                        </h1>
+                        <p class="font-serif text-3xl md:text-5xl text-gold my-1 md:my-2">&amp;</p>
+                        <h1 class="font-script text-7xl md:text-9xl text-white drop-shadow-lg leading-none">Minh Khôi
+                        </h1>
+                    </div>
+                    <h2 class="font-body-alt text-lg md:text-xl font-light max-w-lg leading-relaxed">"Tình yêu không
+                        phải là nhìn chằm chằm vào nhau, mà là cùng nhau nhìn về một hướng."</h2>
+                    <p class="font-body-alt text-xl md:text-2xl font-light mt-6 tracking-widest">25 . 12 . 2024</p>
+                </div>
+                <div class="absolute bottom-10 z-20 animate-bounce">
+                    <span class="material-symbols-outlined text-white text-4xl">keyboard_arrow_down</span>
+                </div>
+            </div>
+            <div class="fixed bottom-5 right-5 z-50">
+                <button id="musicToggle"
+                    class="w-12 h-12 rounded-full bg-gold/80 backdrop-blur-sm text-white flex items-center justify-center shadow-lg transition-transform duration-300 ease-out-expo hover:scale-110 active:scale-95">
+                    <span class="material-symbols-outlined text-2xl" id="musicIcon">music_note</span>
+                </button>
+            </div>
+            <div
+                class="px-4 md:px-10 lg:px-20 flex justify-center py-16 md:py-24 bg-off-white dark:bg-background-dark relative overflow-hidden">
+                <div class="absolute -top-20 -left-20 opacity-10 dark:opacity-5">
+                    <img alt="Floral decoration" class="w-80 h-80 object-cover rounded-full mix-blend-luminosity"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUWWgASv5Von_xH7vx-8q6sfg0Sp6P16muVlMgUZDQSN_YgHIvgJfFCtghirXdeFiigtxvf_4GgPuuDSzRFlhxmRkcfawz9zcdmE4neN9U5StiJ3fuSpKrJ7fepqg-AoeuspJ03_agGMS3maObGPNJUwsCWh6_QsBhQ9mNVbcnrhwKAgVNp2Xo1ae6jdzQEmcj6eR99eHpCFHJ5ZyHYzVhwWIgrWHqcqk6eVzDfj2L7mML8Q7vJfFUbOz2Q6v3chIJ2ZMaMWFK4itB" />
+                </div>
+                <div
+                    class="layout-content-container flex flex-col md:flex-row max-w-[1200px] flex-1 items-center text-center md:text-left gap-8 lg:gap-16">
+                    <div class="relative w-full md:w-5/12 scroll-scale-in">
+                        <img alt="Couple photo"
+                            class="w-full aspect-square object-cover rounded-full shadow-xl border-8 border-white dark:border-background-dark/20 parallax-image"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6KWS2gaA2CXmCd9rY2bt8zU22O-wNCjezyPCpwyaM6cRZbVJt46jYlIzDJrwsptBCk8FE3M-Qv1XLnbfMqqPA06dMqS-Mb3_ZwNc6vlx-_qpHqv6zqncaDmSHyqN3pQC0-KSlxXP0MrRJLulLeSJZQiluJcxpM6Na7WzIM6ESIniSL2XTgkQnzzbvR57gaaKTil5CLwTWQ-wIWrMRAv9rYsBXdRIeQPybJZbtQhSFnr1Kfake5EP4rGCGzFykmqrW8JRYqXU3Zdey" />
+                        <div
+                            class="absolute -bottom-8 -right-4 w-32 h-44 lg:w-40 lg:h-56 bg-white dark:bg-background-dark/50 p-2 rounded-lg shadow-2xl rotate-6 border border-gray-100 dark:border-gray-800 parallax-image">
+                            <img alt="Couple photo" class="w-full h-full object-cover rounded-md"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtvQn95aNY3de34aueYkRb0pliQnn7-yNIJ4b195969bfJN3HAYvU_pIvHq9tRoXyRlWYsGFTfMsPZVVpiYpRpCgGBueP-PLVAASeoDLSU5rYrqrMw0wcWP7XbfxxM_zCL92BxEqssHaCKJlKR-RTC93Q1GGxGNYZhvzYubJp9qZo7L2Y3Vim_s82JvKOfjGuQZZQGVkekLuwx5HyjvjvT5rMEl_v25iTLNShx15LK_wOOcrXqRQw-Y3sYLSaoSJW1RuP8zIMWoRP" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 mt-8 md:mt-0 z-10 scroll-slide-right">
+                        <h2 class="text-gold text-3xl md:text-4xl font-serif font-bold leading-tight tracking-tight">
+                            Trân trọng kính mời</h2>
+                        <p
+                            class="text-charcoal dark:text-gray-300 text-lg font-light leading-relaxed mt-4 max-w-2xl font-body-alt">
+                            Tình yêu là món quà quý giá nhất mà cuộc sống ban tặng. Chúng tôi, Thanh Loan và Minh Khôi,
+                            vô cùng hạnh phúc khi được chia sẻ niềm vui này cùng gia đình và bạn bè thân thiết. Sự hiện
+                            diện của bạn là lời chúc phúc tuyệt vời nhất cho khởi đầu mới của chúng tôi.
+                        </p>
+                        <div class="mt-8">
+                            <h3
+                                class="text-charcoal dark:text-gray-300 text-2xl font-serif font-bold leading-tight tracking-tight">
+                                Hành trình đến ngày chung đôi</h3>
+                            <div class="flex gap-2 md:gap-4 py-4">
+                                <div class="flex grow basis-0 flex-col items-stretch gap-2 scroll-fade-in">
+                                    <div
+                                        class="flex h-20 md:h-24 grow items-center justify-center rounded-lg px-2 bg-white dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700">
+                                        <p class="text-gold text-3xl md:text-4xl font-bold leading-tight">180</p>
+                                    </div>
+                                    <p
+                                        class="text-charcoal dark:text-gray-400 text-sm font-normal leading-normal text-center">
+                                        Ngày</p>
+                                </div>
+                                <div class="flex grow basis-0 flex-col items-stretch gap-2 scroll-fade-in">
+                                    <div
+                                        class="flex h-20 md:h-24 grow items-center justify-center rounded-lg px-2 bg-white dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700">
+                                        <p class="text-gold text-3xl md:text-4xl font-bold leading-tight">10</p>
+                                    </div>
+                                    <p
+                                        class="text-charcoal dark:text-gray-400 text-sm font-normal leading-normal text-center">
+                                        Giờ</p>
+                                </div>
+                                <div class="flex grow basis-0 flex-col items-stretch gap-2 scroll-fade-in">
+                                    <div
+                                        class="flex h-20 md:h-24 grow items-center justify-center rounded-lg px-2 bg-white dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700">
+                                        <p class="text-gold text-3xl md:text-4xl font-bold leading-tight">30</p>
+                                    </div>
+                                    <p
+                                        class="text-charcoal dark:text-gray-400 text-sm font-normal leading-normal text-center">
+                                        Phút</p>
+                                </div>
+                                <div class="flex grow basis-0 flex-col items-stretch gap-2 scroll-fade-in">
+                                    <div
+                                        class="flex h-20 md:h-24 grow items-center justify-center rounded-lg px-2 bg-white dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700">
+                                        <p class="text-gold text-3xl md:text-4xl font-bold leading-tight">55</p>
+                                    </div>
+                                    <p
+                                        class="text-charcoal dark:text-gray-400 text-sm font-normal leading-normal text-center">
+                                        Giây</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="px-4 md:px-10 lg:px-20 flex flex-1 justify-center py-16 md:py-24 bg-white dark:bg-black/20 relative overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoGT3hU7Q82qyD2KtIUIG1pHWhBPPBtX-hQqKKHRdRSqvPtc64Jcq2FI-UR14vFa0ujtFz5kjukn3NFQA5HcTX2S3bB_4jM4p_9TAoJVLtYGQwmbP9dGJa2ARzK3Hlh94rffzlN8JxobieUdS0yGnoXjzyvOqES5fPVkqUb4vUGsMe1a3Zoc9uC13CD9-lNNPStnfNWQvXoKCbNl_KQlp5Msw0sg7SJzvyese0bPG46PlFIKFXbZr01G2mYtIO5D9GZgSCCjbbPitd')] bg-cover bg-center opacity-5 dark:opacity-[0.03] mix-blend-luminosity blur-sm scale-110">
+                </div>
+                <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center z-10">
+                    <h2
+                        class="text-gold text-3xl md:text-4xl font-serif font-bold leading-tight tracking-tight px-4 pb-2 scroll-fade-in">
+                        Thông tin lễ cưới</h2>
+                    <p
+                        class="text-charcoal dark:text-gray-300 text-lg font-light leading-relaxed pb-10 pt-1 px-4 text-center font-body-alt scroll-fade-in">
+                        Niềm vui nhân đôi, hạnh phúc vẹn tròn trong ngày trọng đại.</p>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full max-w-4xl px-4 text-center mb-12">
+                        <div class="flex flex-col items-center scroll-slide-left">
+                            <h3 class="text-charcoal dark:text-gray-200 text-2xl font-serif font-bold">Nhà Gái</h3>
+                            <p class="font-script text-gold text-3xl my-2">Thanh Loan</p>
+                            <div class="font-body-alt text-charcoal/80 dark:text-gray-400 space-y-1">
+                                <p><span class="font-semibold">Ông:</span> Nguyễn Văn A</p>
+                                <p><span class="font-semibold">Bà:</span> Trần Thị B</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center scroll-slide-right">
+                            <h3 class="text-charcoal dark:text-gray-200 text-2xl font-serif font-bold">Nhà Trai</h3>
+                            <p class="font-script text-gold text-3xl my-2">Minh Khôi</p>
+                            <div class="font-body-alt text-charcoal/80 dark:text-gray-400 space-y-1">
+                                <p><span class="font-semibold">Ông:</span> Lê Minh C</p>
+                                <p><span class="font-semibold">Bà:</span> Phạm Thị D</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h2
+                        class="text-gold text-3xl md:text-4xl font-serif font-bold leading-tight tracking-tight px-4 pb-2 scroll-fade-in">
+                        Lịch trình sự kiện</h2>
+                    <p
+                        class="text-charcoal dark:text-gray-300 text-lg font-light leading-relaxed pb-10 pt-1 px-4 text-center font-body-alt scroll-fade-in">
+                        Những khoảnh khắc quan trọng nhất trong ngày trọng đại của chúng tôi.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl px-4">
+                        <div
+                            class="flex flex-col items-center text-center gap-4 p-6 bg-off-white/80 dark:bg-background-dark/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 dark:border-gray-800 transition-transform duration-500 ease-out-expo hover:-translate-y-2 scroll-scale-in">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center rounded-full bg-gold/10 dark:bg-gold/20 mb-2">
+                                <i class="fa-solid fa-house-chimney text-gold text-3xl"></i>
+                            </div>
+                            <h3 class="text-charcoal dark:text-gray-200 text-2xl font-serif font-bold">Lễ Gia Tiên</h3>
+                            <p class="text-gold dark:text-gold/80 font-semibold text-lg">09:00 - 25/12/2024</p>
+                            <div class="text-charcoal dark:text-gray-400 font-body-alt flex flex-col gap-1">
+                                <p class="font-semibold text-charcoal/80 dark:text-gray-300">Tư gia nhà trai</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col items-center text-center gap-4 p-6 bg-off-white/80 dark:bg-background-dark/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 dark:border-gray-800 transition-transform duration-500 ease-out-expo hover:-translate-y-2 scroll-scale-in">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center rounded-full bg-gold/10 dark:bg-gold/20 mb-2">
+                                <i class="fa-solid fa-ring text-gold text-3xl"></i>
+                            </div>
+                            <h3 class="text-charcoal dark:text-gray-200 text-2xl font-serif font-bold">Lễ Thành Hôn</h3>
+                            <p class="text-gold dark:text-gold/80 font-semibold text-lg">11:00 - 25/12/2024</p>
+                            <div class="text-charcoal dark:text-gray-400 font-body-alt flex flex-col gap-1">
+                                <p class="font-semibold text-charcoal/80 dark:text-gray-300">Tư gia nhà gái</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full max-w-5xl px-4 mt-8 flex flex-col items-center text-center scroll-fade-in">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center rounded-full bg-gold/10 dark:bg-gold/20 mb-4">
+                            <i class="fa-solid fa-champagne-glasses text-gold text-4xl"></i>
+                        </div>
+                        <h3 class="text-charcoal dark:text-gray-200 text-3xl font-serif font-bold">Tiệc Cưới</h3>
+                        <p class="text-gold dark:text-gold/80 font-semibold text-xl mt-2">18:00 - 25/12/2024</p>
+                        <div class="text-charcoal dark:text-gray-400 font-body-alt mt-4">
+                            <p class="font-semibold text-charcoal/80 dark:text-gray-300 text-xl">Khách sạn Grand Plaza
+                            </p>
+                            <p class="mt-1">117 Nguyễn Văn Linh, Phường Nam Dương, Quận Hải Châu, Đà Nẵng</p>
+                        </div>
+                        <a class="inline-flex items-center text-lg text-gold hover:underline mt-4 px-6 py-2 bg-gold/10 rounded-full"
+                            href="#">Xem bản đồ<span
+                                class="material-symbols-outlined text-xl ml-1">arrow_forward</span></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="px-4 md:px-10 lg:px-20 flex justify-center py-16 md:py-24 bg-off-white dark:bg-background-dark overflow-hidden">
+                <div class="layout-content-container flex flex-col max-w-[1200px] w-full flex-1 items-center">
+                    <h2
+                        class="text-gold text-3xl md:text-4xl font-serif font-bold leading-tight tracking-tight px-4 pb-2 scroll-fade-in">
+                        Câu chuyện tình yêu</h2>
+                    <p
+                        class="text-charcoal dark:text-gray-300 text-lg font-light leading-relaxed pb-12 pt-1 px-4 text-center max-w-3xl font-body-alt scroll-fade-in">
+                        Khoảnh khắc hạnh phúc được lưu giữ mãi mãi.</p>
+                    <div class="w-full max-w-5xl mx-auto flex flex-col gap-16 md:gap-32 lg:gap-40">
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8 items-center">
+                            <div class="relative w-full col-span-1 md:col-span-3 h-80 md:h-[450px]">
+                                <img alt="Wedding photo 1"
+                                    class="w-full h-full object-cover rounded-lg shadow-xl aspect-[4/3] transform md:-rotate-3 transition-all duration-500 hover:scale-105 hover:rotate-0 hover:shadow-2xl z-10 parallax-image scroll-scale-in"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtvQn95aNY3de34aueYkRb0pliQnn7-yNIJ4b195969bfJN3HAYvU_pIvHq9tRoXyRlWYsGFTfMsPZVVpiYpRpCgGBueP-PLVAASeoDLSU5rYrqrMw0wcWP7XbfxxM_zCL92BxEqssHaCKJlKR-RTC93Q1GGxGNYZhvzYubJp9qZo7L2Y3Vim_s82JvKOfjGuQZZQGVkekLuwx5HyjvjvT5rMEl_v25iTLNShx15LK_wOOcrXqRQw-Y3sYLSaoSJW1RuP8zIMWoRP" />
+                                <img alt="Wedding photo 2"
+                                    class="w-1/2 md:w-2/5 h-auto object-cover rounded-lg shadow-xl aspect-square absolute bottom-[-15%] left-[5%] md:left-auto md:bottom-[-20%] md:right-[-10%] transform rotate-6 border-4 border-off-white dark:border-background-dark transition-all duration-500 hover:scale-110 hover:rotate-2 hover:shadow-2xl z-20 parallax-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUWWgASv5Von_xH7vx-8q6sfg0Sp6P16muVlMgUZDQSN_YgHIvgJfFCtghirXdeFiigtxvf_4GgPuuDSzRFlhxmRkcfawz9zcdmE4neN9U5StiJ3fuSpKrJ7fepqg-AoeuspJ03_agGMS3maObGPNJUwsCWh6_QsBhQ9mNVbcnrhwKAgVNp2Xo1ae6jdzQEmcj6eR99eHpCFHJ5ZyHYzVhwWIgrWHqcqk6eVzDfj2L7mML8Q7vJfFUbOz2Q6v3chIJ2ZMaMWFK4itB" />
+                            </div>
+                            <div
+                                class="relative w-full md:col-span-2 text-center md:text-left pt-16 md:pt-0 scroll-fade-in">
+                                <p class="font-script text-3xl md:text-4xl text-gold">Cái nắm tay đầu tiên</p>
+                                <p class="mt-2 font-body-alt leading-relaxed">"Trong khoảnh khắc ấy, cả thế giới dường
+                                    như dừng lại, chỉ còn lại hơi ấm từ bàn tay anh."</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
+                            <div
+                                class="relative w-full md:col-span-1 text-center md:text-right order-2 md:order-1 pt-8 md:pt-0 scroll-fade-in">
+                                <p class="font-script text-3xl md:text-4xl text-gold">Nụ cười dưới nắng</p>
+                                <p class="mt-2 font-body-alt leading-relaxed">"Nụ cười của em còn rạng rỡ hơn cả ánh
+                                    nắng ngày hè, sưởi ấm cả trái tim anh."</p>
+                            </div>
+                            <div
+                                class="relative w-full h-96 md:h-auto md:col-span-1 order-1 md:order-2 scroll-scale-in">
+                                <img alt="Wedding photo 3"
+                                    class="w-full h-full object-cover rounded-lg shadow-xl aspect-[3/4] transform rotate-2 transition-all duration-500 hover:scale-105 hover:rotate-0 hover:shadow-2xl parallax-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtvQn95aNY3de34aueYkRb0pliQnn7-yNIJ4b195969bfJN3HAYvU_pIvHq9tRoXyRlWYsGFTfMsPZVVpiYpRpCgGBueP-PLVAASeoDLSU5rYrqrMw0wcWP7XbfxxM_zCL92BxEqssHaCKJlKR-RTC93Q1GGxGNYZhvzYubJp9qZo7L2Y3Vim_s82JvKOfjGuQZZQGVkekLuwx5HyjvjvT5rMEl_v25iTLNShx15LK_wOOcrXqRQw-Y3sYLSaoSJW1RuP8zIMWoRP" />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8 items-center">
+                            <div class="relative w-full col-span-1 md:col-span-3 h-[450px] md:h-[500px]">
+                                <img alt="Wedding photo 4"
+                                    class="w-4/5 h-auto object-cover rounded-lg shadow-xl aspect-square absolute top-0 left-0 transform rotate-4 transition-all duration-500 hover:scale-105 hover:rotate-0 hover:shadow-2xl z-10 parallax-image scroll-scale-in"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwbNeBOUhmSwuE9YKy-nPhJ2vbKsZYs04sG_3awGgK85UNxcHzPSPxdvvozmd_GG5Hx3URIS7Yx7h18drmsJm8LlYbNlONgGMEnija1HawHdBsPnRBleqAKkszsgABldrqshDjpjHRqWrWCp0lYiLUwRkiJAXUJAVUo7Audqt6r-d8Z8xv_4QLa4kNEiVRtzh-TUtUBrNx6kYOm4QscAoZhIKy-xCSeQfkh9xp9pCKMjGeHO77GOZDY_1YvSBu--2LGtk4dwRki4BM" />
+                                <img alt="Wedding photo 5"
+                                    class="w-1/2 md:w-3/5 h-auto object-cover rounded-lg shadow-xl aspect-[4/3] absolute bottom-0 right-0 transform -rotate-6 border-4 border-off-white dark:border-background-dark transition-all duration-500 hover:scale-110 hover:rotate-0 hover:shadow-2xl z-20 parallax-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwbNeBOUhmSwuE9YKy-nPhJ2vbKsZYs04sG_3awGgK85UNxcHzPSPxdvvozmd_GG5Hx3URIS7Yx7h18drmsJm8LlYbNlONgGMEnija1HawHdBsPnRBleqAKkszsgABldrqshDjpjHRqWrWCp0lYiLUwRkiJAXUJAVUo7Audqt6r-d8Z8xv_4QLa4kNEiVRtzh-TUtUBrNx6kYOm4QscAoZhIKy-xCSeQfkh9xp9pCKMjGeHO77GOZDY_1YvSBu--2LGtk4dwRki4BM" />
+                            </div>
+                            <div
+                                class="relative w-full md:col-span-2 text-center md:text-left self-center pt-8 md:pt-0 scroll-fade-in">
+                                <p class="font-script text-3xl md:text-4xl text-gold">Bình yên một góc trời</p>
+                                <p class="mt-2 font-body-alt leading-relaxed">"Chỉ cần có anh bên cạnh, mọi bão giông
+                                    đều hóa thành bình yên."</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-7 gap-4 md:gap-8 items-center">
+                            <div
+                                class="relative col-span-1 md:col-span-3 text-center md:text-right self-center order-2 md:order-1 pt-8 md:pt-0 scroll-fade-in">
+                                <p class="font-script text-3xl md:text-4xl text-gold">Lời hẹn ước</p>
+                                <p class="mt-2 font-body-alt leading-relaxed">"Dưới bầu trời sao, chúng ta đã trao nhau
+                                    lời hẹn ước đi cùng nhau đến cuối cuộc đời."</p>
+                            </div>
+                            <div
+                                class="relative w-full h-80 md:h-auto col-span-1 md:col-span-4 order-1 md:order-2 scroll-scale-in">
+                                <img alt="Wedding photo 6"
+                                    class="w-full h-full object-cover rounded-lg shadow-xl transform -rotate-2 transition-all duration-500 hover:scale-105 hover:rotate-0 hover:shadow-2xl parallax-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtvQn95aNY3de34aueYkRb0pliQnn7-yNIJ4b195969bfJN3HAYvU_pIvHq9tRoXyRlWYsGFTfMsPZVVpiYpRpCgGBueP-PLVAASeoDLSU5rYrqrMw0wcWP7XbfxxM_zCL92BxEqssHaCKJlKR-RTC93Q1GGxGNYZhvzYubJp9qZo7L2Y3Vim_s82JvKOfjGuQZZQGVkekLuwx5HyjvjvT5rMEl_v25iTLNShx15LK_wOOcrXqRQw-Y3sYLSaoSJW1RuP8zIMWoRP" />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
+                            <div class="relative w-full h-[450px] md:h-[500px]">
+                                <img alt="Wedding photo 8"
+                                    class="w-3/5 md:w-1/2 h-auto object-cover rounded-lg shadow-xl aspect-[3/4] absolute top-0 left-0 transform rotate-6 z-20 border-4 border-off-white dark:border-background-dark transition-all duration-500 hover:scale-110 hover:rotate-1 hover:shadow-2xl parallax-image scroll-scale-in"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoGT3hU7Q82qyD2KtIUIG1pHWhBPPBtX-hQqKKHRdRSqvPtc64Jcq2FI-UR14vFa0ujtFz5kjukn3NFQA5HcTX2S3bB_4jM4p_9TAoJVLtYGQwmbP9dGJa2ARzK3Hlh94rffzlN8JxobieUdS0yGnoXjzyvOqES5fPVkqUb4vUGsMe1a3Zoc9uC13CD9-lNNPStnfNWQvXoKCbNl_KQlp5Msw0sg7SJzvyese0bPG46PlFIKFXbZr01G2mYtIO5D9GZgSCCjbbPitd" />
+                                <img alt="Wedding photo 7"
+                                    class="w-4/5 md:w-3/4 h-auto object-cover rounded-lg shadow-xl aspect-[4/3] absolute bottom-0 right-0 transform -rotate-3 z-10 transition-all duration-500 hover:scale-105 hover:rotate-0 hover:shadow-2xl parallax-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtvQn95aNY3de34aueYkRb0pliQnn7-yNIJ4b195969bfJN3HAYvU_pIvHq9tRoXyRlWYsGFTfMsPZVVpiYpRpCgGBueP-PLVAASeoDLSU5rYrqrMw0wcWP7XbfxxM_zCL92BxEqssHaCKJlKR-RTC93Q1GGxGNYZhvzYubJp9qZo7L2Y3Vim_s82JvKOfjGuQZZQGVkekLuwx5HyjvjvT5rMEl_v25iTLNShx15LK_wOOcrXqRQw-Y3sYLSaoSJW1RuP8zIMWoRP" />
+                            </div>
+                            <div
+                                class="relative w-full self-end md:self-center text-center md:text-left pt-8 md:pt-0 scroll-fade-in">
+                                <p class="font-script text-3xl md:text-4xl text-gold">Chung một con đường</p>
+                                <p class="mt-2 font-body-alt leading-relaxed">"Tình yêu không phải là nhìn nhau, mà là
+                                    cùng nhau nhìn về một hướng."</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-8 items-center">
+                            <div
+                                class="relative col-span-1 md:col-span-2 text-center md:text-right self-center order-2 md:order-1 pt-8 md:pt-0 scroll-fade-in">
+                                <p class="font-script text-3xl md:text-4xl text-gold">Mãi mãi về sau</p>
+                                <p class="mt-2 font-body-alt leading-relaxed">"Hành trình của chúng ta mới chỉ bắt đầu,
+                                    và chương đẹp nhất đang chờ ở phía trước."</p>
+                            </div>
+                            <div
+                                class="relative w-full h-80 md:h-auto col-span-1 md:col-span-4 order-1 md:order-2 scroll-scale-in">
+                                <img alt="Wedding photo 9"
+                                    class="w-full h-full object-cover rounded-lg shadow-xl aspect-[16/9] transition-all duration-500 hover:scale-105 hover:shadow-2xl parallax-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSXru4ohOApkN2iKCkjQyot1jv1MJ6xHMyM9tw0v82ijnoI9FuBlSDF4C3VA7_lAJ68kpe7qqFaLHBX15zqb8X2iJltGqWHATj9t3jOsf5VbI1Msl2y6ImH1QWd1osxwwM1VSWcyiJ178dA8SjuQy672wd6_Zt3rdtoIzZLzatB5ZPmDe8904829feYaYq4whDMq5Rx40VtMaEORHau8yrX9-UKuIsRGx9pPRz4SOSIBMH56roxZkkvNsLRFr-5XMjo-V6GDIdTHCU" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="px-4 md:px-10 lg:px-40 flex justify-center py-16 md:py-24 bg-white dark:bg-black/20 relative overflow-hidden">
+                <div class="absolute -bottom-40 -right-40 opacity-10 dark:opacity-5">
+                    <img alt="Floral decoration"
+                        class="w-[40rem] h-[40rem] object-cover rounded-full mix-blend-luminosity transform -scale-x-100"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUWWgASv5Von_xH7vx-8q6sfg0Sp6P16muVlMgUZDQSN_YgHIvgJfFCtghirXdeFiigtxvf_4GgPuuDSzRFlhxmRkcfawz9zcdmE4neN9U5StiJ3fuSpKrJ7fepqg-AoeuspJ03_agGMS3maObGPNJUwsCWh6_QsBhQ9mNVbcnrhwKAgVNp2Xo1ae6jdzQEmcj6eR99eHpCFHJ5ZyHYzVhwWIgrWHqcqk6eVzDfj2L7mML8Q7vJfFUbOz2Q6v3chIJ2ZMaMWFK4itB" />
+                </div>
+                <div
+                    class="layout-content-container grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-[1200px] flex-1 items-center z-10">
+                    <div class="w-full relative h-96 md:h-auto md:aspect-[4/5] scroll-slide-left">
+                        <img alt="Couple photo"
+                            class="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white dark:border-gray-800 transform rotate-2 parallax-image"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwbNeBOUhmSwuE9YKy-nPhJ2vbKsZYs04sG_3awGgK85UNxcHzPSPxdvvozmd_GG5Hx3URIS7Yx7h18drmsJm8LlYbNlONgGMEnija1HawHdBsPnRBleqAKkszsgABldrqshDjpjHRqWrWCp0lYiLUwRkiJAXUJAVUo7Audqt6r-d8Z8xv_4QLa4kNEiVRtzh-TUtUBrNx6kYOm4QscAoZhIKy-xCSeQfkh9xp9pCKMjGeHO77GOZDY_1YvSBu--2LGtk4dwRki4BM" />
+                        <img alt="Couple photo"
+                            class="w-48 h-60 object-cover rounded-lg shadow-2xl border-4 border-white dark:border-gray-800 absolute -bottom-10 -left-6 transform -rotate-6 parallax-image"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtvQn95aNY3de34aueYkRb0pliQnn7-yNIJ4b195969bfJN3HAYvU_pIvHq9tRoXyRlWYsGFTfMsPZVVpiYpRpCgGBueP-PLVAASeoDLSU5rYrqrMw0wcWP7XbfxxM_zCL92BxEqssHaCKJlKR-RTC93Q1GGxGNYZhvzYubJp9qZo7L2Y3Vim_s82JvKOfjGuQZZQGVkekLuwx5HyjvjvT5rMEl_v25iTLNShx15LK_wOOcrXqRQw-Y3sYLSaoSJW1RuP8zIMWoRP" />
+                    </div>
+                    <div class="flex flex-col items-center md:items-start text-center md:text-left scroll-slide-right">
+                        <h2
+                            class="text-gold text-3xl md:text-4xl font-serif font-bold leading-tight tracking-tight px-4 pb-2">
+                            Gửi lời chúc phúc</h2>
+                        <p
+                            class="text-charcoal dark:text-gray-300 text-lg font-light leading-relaxed pb-10 pt-1 px-4 font-body-alt">
+                            Những lời chúc của bạn là món quà vô giá đối với chúng tôi.</p>
+                        <form class="w-full max-w-lg flex flex-col gap-4 px-4">
+                            <input
+                                class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark/50 focus:border-gold focus:ring-gold transition-colors duration-300 placeholder:font-body-alt placeholder:text-gray-400"
+                                placeholder="Tên của bạn" type="text" />
+                            <textarea
+                                class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark/50 focus:border-gold focus:ring-gold transition-colors duration-300 placeholder:font-body-alt placeholder:text-gray-400"
+                                placeholder="Lời chúc của bạn..." rows="4"></textarea>
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-gold text-white text-base font-bold leading-normal tracking-[0.015em] transition-all duration-300 ease-out-expo hover:bg-opacity-90 hover:shadow-lg active:scale-95">
+                                <span class="truncate">Gửi lời chúc</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <footer class="w-full flex justify-center py-10 bg-off-white dark:bg-background-dark">
+                <div class="text-center scroll-fade-in">
+                    <p class="text-charcoal dark:text-gray-300 text-2xl font-script">Thank You!</p>
+                    <h3 class="text-gold text-3xl font-script font-bold">Thanh Loan &amp; Minh Khôi</h3>
+                    <p class="text-charcoal dark:text-gray-400 mt-4 font-body-alt">#LoanKhoiWedding2024</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Thêm JavaScript để xử lý scroll animations, parallax và music toggle -->
+    <script>
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Áp dụng observer cho tất cả phần tử có class scroll animation
+        document.querySelectorAll('.scroll-fade-in, .scroll-scale-in, .scroll-slide-left, .scroll-slide-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax Effect on Mouse Move
+        const parallaxImages = document.querySelectorAll('.parallax-image');
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = (e.clientX / window.innerWidth) - 0.5;
+            const mouseY = (e.clientY / window.innerHeight) - 0.5;
+
+            parallaxImages.forEach(img => {
+                const offsetX = mouseX * 20;
+                const offsetY = mouseY * 20;
+                img.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+        });
+
+        // Music Toggle
+        const musicButton = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicIcon = document.getElementById('musicIcon');
+        let isMusicPlaying = false;
+
+        musicButton.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicIcon.textContent = 'music_note';
+                isMusicPlaying = false;
+            } else {
+                bgMusic.play().catch(err => {
+                    console.log('Audio play failed:', err);
+                });
+                musicIcon.textContent = 'pause';
+                isMusicPlaying = true;
+            }
+        });
+
+        // Auto-play music with user interaction
+        document.addEventListener('click', () => {
+            if (!isMusicPlaying) {
+                bgMusic.play().catch(err => {
+                    console.log('Auto-play failed (browser restriction)');
+                });
+            }
+        }, { once: true });
+    </script>
+    <script>
+        const canvas = document.getElementById('snowCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const snowflakes = [];
+        const maxFlakes = 100;
+
+        // Tạo các hạt tuyết
+        for (let i = 0; i < maxFlakes; i++) {
+            snowflakes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: Math.random() * 4 + 1, // bán kính hạt
+                d: Math.random() * maxFlakes // độ trễ rơi
+            });
+        }
+
+        // Vẽ tuyết
+        function drawSnow() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            for (let i = 0; i < maxFlakes; i++) {
+                let f = snowflakes[i];
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            moveSnow();
+        }
+
+        // Di chuyển tuyết
+        let angle = 0;
+        function moveSnow() {
+            angle += 0.01;
+            for (let i = 0; i < maxFlakes; i++) {
+                let f = snowflakes[i];
+                f.y += Math.cos(angle + f.d) + 1 + f.r / 2;
+                f.x += Math.sin(angle) * 2;
+
+                // Khi rơi ra khỏi màn hình, reset vị trí
+                if (f.x > width + 5 || f.x < -5 || f.y > height) {
+                    f.x = Math.random() * width;
+                    f.y = -10;
+                }
+            }
+        }
+
+        // Resize canvas khi window thay đổi
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Animate
+        function animate() {
+            drawSnow();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+
+</body>
+
+</html>
